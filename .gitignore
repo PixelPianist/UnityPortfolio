@@ -89,3 +89,8 @@
 /react-app/psd
 /react-app/thumb
 /react-app/sketch
+
+#################################
+# Jetbrains .gitignore
+#################################
+.idea
