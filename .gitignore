@@ -75,20 +75,20 @@
 #################################
 # React .gitignore
 #################################
-/react-app/.DS_*
-/react-app/*.log
-/react-app/logs
-/react-app/**/*.backup.*
-/react-app/**/*.back.*
+/website/.DS_*
+/website/*.log
+/website/logs
+/website/**/*.backup.*
+/website/**/*.back.*
 
-/react-app/node_modules
-/react-app/bower_components
+/website/node_modules
+/website/bower_components
 
-/react-app/*.sublime*
+/website/*.sublime*
 
-/react-app/psd
-/react-app/thumb
-/react-app/sketch
+/website/psd
+/website/thumb
+/website/sketch
 
 #################################
 # Jetbrains .gitignore
