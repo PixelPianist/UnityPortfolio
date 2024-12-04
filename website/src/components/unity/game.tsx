@@ -21,8 +21,11 @@ const Game: React.FC<GameProps> = ({ loaderUrl, dataUrl, frameworkUrl, codeUrl, 
     });
 
     return (
-        <div style={{ width: '95vw', height: '95vh', margin: 'auto' }}>
-            <Unity unityProvider={unityProvider} style={{ width: '100%', height: '100%' }} />
+        <div className={"w-[95vw] h-[95vh] mx-auto"}>
+            <Unity 
+                unityProvider={unityProvider} 
+                className={"w-full h-full"}
+            />
         </div>
     );
 }
