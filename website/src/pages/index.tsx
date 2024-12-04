@@ -23,10 +23,10 @@ const IndexPage = () => {
                     </h2>
                     <div className="w-full" style={{ margin: 'auto' }}>
                         <Game
-                            loaderUrl="/Build/public.loader.js"
-                            dataUrl="/Build/public.data"
-                            frameworkUrl="/Build/public.framework.js"
-                            codeUrl="/Build/public.wasm"
+                            loaderUrl="https://public-unity-builds.s3.us-east-2.amazonaws.com/TestProject/build.loader.js"
+                            dataUrl="https://public-unity-builds.s3.us-east-2.amazonaws.com/TestProject/build.data"
+                            frameworkUrl="https://public-unity-builds.s3.us-east-2.amazonaws.com/TestProject/build.framework.js"
+                            codeUrl="https://public-unity-builds.s3.us-east-2.amazonaws.com/TestProject/build.wasm"
                         />
                     </div>
                 </section>
