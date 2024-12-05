@@ -9,7 +9,7 @@ interface GamePageProps {
 
 const GamePage: NextPage<GamePageProps> = ({ game }) => {
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+        <div>
             <header className="container mx-auto p-6 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">{game}</h1>
                 <p className="text-gray-300 max-w-2xl mx-auto">
@@ -29,12 +29,6 @@ const GamePage: NextPage<GamePageProps> = ({ game }) => {
                     </div>
                 </section>
             </main>
-
-            <footer className="bg-gray-800 p-4">
-                <div className="container mx-auto text-center text-gray-400">
-                    &copy; {new Date().getFullYear()} Unity Automation Sample. All rights reserved.
-                </div>
-            </footer>
         </div>
     );
 };

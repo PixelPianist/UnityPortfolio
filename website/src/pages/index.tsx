@@ -3,16 +3,28 @@ import Link from 'next/link';
 
 const IndexPage = () => {
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+        <div>
             {/* Header */}
-            <header className="container mx-auto p-6 text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <header className="container mx-auto p-6">
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
                     Unity Automation Sample
                 </h1>
                 <p className="text-gray-300 max-w-2xl mx-auto">
-                    Welcome to my Unity Portfolio, showcasing Unity development,
-                    React integration, AWS infrastructure as code, and CI/CD automation.
+                    Welcome to my portfolio! This website is intended to show how you can set up infrastructure to
+                    automatically build and deploy Unity games to the web.
+                    Here is how the site is built:
                 </p>
+                <ul className="text-gray-100 max-w-2xl mx-auto mt-4 list-disc list-inside pl-4">
+                    <li className="mb-2 text-gray-100">
+                        A Next.js frontend that lists available Unity games on an S3 bucket.
+                    </li>
+                    <li className="mb-2 text-gray-100">
+                        Unity games are automatically built and released to an S3 bucket via GitHub Actions.
+                    </li>
+                    <li className="mb-2 text-gray-100">
+                        AWS infrastructure created using AWS CDK to host the games.
+                    </li>
+                </ul>
             </header>
 
             {/* Main Content */}
@@ -29,13 +41,6 @@ const IndexPage = () => {
                     </Link>
                 </section>
             </main>
-
-            {/* Footer */}
-            <footer className="bg-gray-800 p-4">
-                <div className="container mx-auto text-center text-gray-400">
-                    &copy; {new Date().getFullYear()} Unity Portfolio. All rights reserved.
-                </div>
-            </footer>
         </div>
     );
 };
