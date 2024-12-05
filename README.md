@@ -1,6 +1,6 @@
-﻿# Unity Automation Sample
+﻿# Unity Portfolio
 
-Welcome to the **Unity Automation Sample**, a comprehensive demonstration of my skills in Unity development, React, QA engineering, AWS, and CI/CD automation using GitHub Actions. This project integrates a Unity WebGL game with a React-based website, showcasing automated testing, code coverage, and continuous deployment.
+Welcome to the **Unity Porfolio** project, a comprehensive demonstration how to set up a Next.js website that has multiple Unity projects that can be demoed. This project integrates a set of Unity WebGL games with a Next-based website, showcasing automated testing, code coverage, and continuous deployment.
 
 ## Table of Contents
 
