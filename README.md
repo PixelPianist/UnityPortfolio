@@ -43,12 +43,12 @@ To get a local copy up and running, follow these steps:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/PixelPianist/UnityAutomationSample.git
-   cd UnityAutomationSample
+   git clone https://github.com/PixelPianist/UnityPortfolio.git
+   cd UnityPortfolio
    ```
 
 2. **Install Dependencies**
 
    ```bash
-   cd react-app && npm install && cd ..
+   cd website && npm install && cd ..
    ```
