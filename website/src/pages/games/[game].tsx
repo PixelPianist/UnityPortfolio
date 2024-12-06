@@ -1,6 +1,7 @@
-﻿import { GetServerSideProps, NextPage } from 'next';
+﻿import { GetServerSidePropsContext, NextPage } from 'next';
 import Game from '@components/unity/game';
 import Header from '@components/Header';
+import { fetchGameDirectories } from '@utils/s3utils';
 
 const GAMES_BUCKET_URL = process.env.NEXT_PUBLIC_GAMES_BUCKET_URL;
 
@@ -32,10 +33,18 @@ const GamePage: NextPage<GamePageProps> = ({ game }) => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: (context: GetServerSidePropsContext) => Promise<{ notFound: boolean } | {
+    props: { game: string }
+}> = async (context) => {
     const { game } = context.params as { game: string };
 
-    // TODO: Validate game directory exists in S3 bucket
+    // Validate the game directory
+    const gameDirectories = await fetchGameDirectories();
+    if (!gameDirectories.includes(game)) {
+        return {
+            notFound: true,
+        };
+    }
 
     return {
         props: {

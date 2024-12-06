@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
-import { parseStringPromise } from 'xml2js';
 import Header from '@components/Header'; 
+import { fetchGameDirectories } from "@utils/s3utils";
 
 const GamesPage = () => {
     const [games, setGames] = useState<string[]>([]);
@@ -10,23 +9,10 @@ const GamesPage = () => {
     useEffect(() => {
         const fetchGames = async () => {
             try {
-                interface S3ListBucketResult {
-                    ListBucketResult: {
-                        Contents: {
-                            Key: string[];
-                        }[];
-                    };
-                }
-                
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_GAMES_BUCKET_URL}`);
-                const result = await parseStringPromise(response.data) as S3ListBucketResult;
-
-
-                const gameDirectories = result.ListBucketResult.Contents
-                    .map(content => content.Key[0].split('/')[0])
-                    .filter((value, index, self) => self.indexOf(value) === index && value);
+                const gameDirectories = await fetchGameDirectories();
                 setGames(gameDirectories);
-            } catch (error) {
+            }
+            catch (error) {
                 console.error('Error fetching games:', error);
             }
         };
