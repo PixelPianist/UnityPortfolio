@@ -1,5 +1,6 @@
 ﻿import { GetServerSideProps, NextPage } from 'next';
 import Game from '@components/unity/game';
+import Header from '@components/Header';
 
 const GAMES_BUCKET_URL = 'https://public-unity-builds.s3.us-east-2.amazonaws.com';
 
@@ -10,12 +11,10 @@ interface GamePageProps {
 const GamePage: NextPage<GamePageProps> = ({ game }) => {
     return (
         <div>
-            <header className="container mx-auto p-6 text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">{game}</h1>
-                <p className="text-gray-300 max-w-2xl mx-auto">
-                    Enjoy the game hosted on our S3 bucket.
-                </p>
-            </header>
+            <Header
+                title={game}
+                subtitle="This text will be replaced by the game's description."
+            />
 
             <main className="flex-grow container mx-auto p-6">
                 <section className="flex flex-col items-center">

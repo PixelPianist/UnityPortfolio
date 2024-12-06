@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import axios from 'axios';
 import { parseStringPromise } from 'xml2js';
-import Link from 'next/link'; // Import Link from next/link
+import Header from '@components/Header'; 
 
 const GAMES_BUCKET_URL = 'https://public-unity-builds.s3.us-east-2.amazonaws.com';
 
@@ -37,14 +38,10 @@ const GamesPage = () => {
 
     return (
         <div>
-            <header className="container mx-auto p-6 text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                    Available Unity Games
-                </h1>
-                <p className="text-gray-300 max-w-2xl mx-auto">
-                    Browse and select a Unity game hosted on our S3 bucket.
-                </p>
-            </header>
+            <Header
+                title="Available Unity Games"
+                subtitle="Browse and select a Unity game hosted on S3."
+            />
 
             <main className="flex-grow container mx-auto p-6">
                 <section className="flex flex-col items-center">
