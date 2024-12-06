@@ -4,8 +4,6 @@ import axios from 'axios';
 import { parseStringPromise } from 'xml2js';
 import Header from '@components/Header'; 
 
-const GAMES_BUCKET_URL = 'https://public-unity-builds.s3.us-east-2.amazonaws.com';
-
 const GamesPage = () => {
     const [games, setGames] = useState<string[]>([]);
 
@@ -20,7 +18,7 @@ const GamesPage = () => {
                     };
                 }
                 
-                const response = await axios.get(`${GAMES_BUCKET_URL}`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_GAMES_BUCKET_URL}`);
                 const result = await parseStringPromise(response.data) as S3ListBucketResult;
 
 

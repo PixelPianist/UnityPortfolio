@@ -2,7 +2,7 @@
 import Game from '@components/unity/game';
 import Header from '@components/Header';
 
-const GAMES_BUCKET_URL = 'https://public-unity-builds.s3.us-east-2.amazonaws.com';
+const GAMES_BUCKET_URL = process.env.NEXT_PUBLIC_GAMES_BUCKET_URL;
 
 interface GamePageProps {
     game: string;
