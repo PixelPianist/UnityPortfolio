@@ -7,14 +7,15 @@ const GAMES_BUCKET_URL = process.env.NEXT_PUBLIC_GAMES_BUCKET_URL;
 
 interface GamePageProps {
     game: string;
+    description: string;
 }
 
-const GamePage: NextPage<GamePageProps> = ({ game }) => {
+const GamePage: NextPage<GamePageProps> = ({ game, description }) => {
     return (
         <div>
             <Header
                 title={game}
-                subtitle="This text will be replaced by the game's description."
+                subtitle={description}
             />
 
             <main className="flex-grow container mx-auto p-6">
@@ -34,7 +35,7 @@ const GamePage: NextPage<GamePageProps> = ({ game }) => {
 };
 
 export const getServerSideProps: (context: GetServerSidePropsContext) => Promise<{ notFound: boolean } | {
-    props: { game: string }
+    props: { game: string, description: string }
 }> = async (context) => {
     const { game } = context.params as { game: string };
 
@@ -46,9 +47,25 @@ export const getServerSideProps: (context: GetServerSidePropsContext) => Promise
         };
     }
 
+    // Fetch the game description
+    const descriptionUrl = `${GAMES_BUCKET_URL}/${game}/description.txt`;
+    let descriptionText = '';
+    try {
+        const descResponse = await fetch(descriptionUrl);
+        if (descResponse.ok) {
+            descriptionText = await descResponse.text();
+        } else {
+            descriptionText = 'No description available';
+        }
+    } catch (err) {
+        console.error(`Error fetching description for ${game}:`, err);
+        descriptionText = 'No description available';
+    }
+
     return {
         props: {
             game,
+            description: descriptionText,
         },
     };
 };
