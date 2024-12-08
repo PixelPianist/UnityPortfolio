@@ -1,6 +1,6 @@
 ﻿import { Stack, StackProps, RemovalPolicy } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-import { Bucket, HttpMethods } from 'aws-cdk-lib/aws-s3';
+import {BlockPublicAccess, Bucket, HttpMethods} from 'aws-cdk-lib/aws-s3';
 import { PolicyStatement, Effect, AnyPrincipal } from 'aws-cdk-lib/aws-iam';
 
 export class PublicUnityBuildsStack extends Stack {
@@ -10,6 +10,13 @@ export class PublicUnityBuildsStack extends Stack {
         const bucket = new Bucket(this, 'PublicUnityBuildsBucket', {
             bucketName: 'public-unity-builds',
             removalPolicy: RemovalPolicy.RETAIN,
+            blockPublicAccess: {
+                blockPublicAcls: false,
+                blockPublicPolicy: false,
+                ignorePublicAcls: false,
+                restrictPublicBuckets: false
+            },
+            publicReadAccess: true,
             // Define CORS configuration
             cors: [
                 {
