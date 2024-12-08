@@ -32,4 +32,4 @@ jobs:
         run: |
           npm install
           npm run build
-          npm run cdk:deploy
+          npm run cdk:deploy -- --require-approval never --all
