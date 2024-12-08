@@ -55,7 +55,7 @@ export class GithubActionsRoleStack extends Stack {
             resources: ["*"]
         }));
 
-        // Add IAM permissions if your CDK app creates roles/policies
+        // Add IAM permissions
         githubActionsRole.addToPolicy(new PolicyStatement({
             effect: Effect.ALLOW,
             actions: [
@@ -66,6 +66,19 @@ export class GithubActionsRoleStack extends Stack {
                 "iam:PassRole",
                 "iam:CreatePolicy",
                 "iam:DeletePolicy"
+            ],
+            resources: ["*"]
+        }));
+        
+        // Add SSM permissions
+        githubActionsRole.addToPolicy(new PolicyStatement({
+            effect: Effect.ALLOW,
+            actions: [
+                "ssm:GetParameter",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:PutParameter",
+                "ssm:DeleteParameter"
             ],
             resources: ["*"]
         }));
