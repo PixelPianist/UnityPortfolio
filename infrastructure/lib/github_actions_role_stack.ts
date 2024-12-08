@@ -21,7 +21,8 @@ export class GithubActionsRoleStack extends Stack {
                 },
                 "sts:AssumeRoleWithWebIdentity"
             ),
-            description: 'Role assumed by GitHub Actions via OIDC to deploy infrastructure using CDK'
+            description: 'Role assumed by GitHub Actions via OIDC to deploy infrastructure using CDK',
+            roleName: 'GithubActionsRole'
         });
 
         // Add CloudFormation permissions
