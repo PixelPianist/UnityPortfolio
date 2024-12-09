@@ -1,0 +1,22 @@
+{
+  "name": "kup",
+  "version": "1.0.0",
+  "description": "A toolkit designed for automating tasks in the UnityPortfolio",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PixelPianist/UnityPortfolio.git"
+  },
+  "author": "Michael Hart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PixelPianist/UnityPortfolio/issues"
+  },
+  "homepage": "https://github.com/PixelPianist/UnityPortfolio#readme",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  }
+}

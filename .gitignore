@@ -106,3 +106,8 @@
 # CDK asset staging directory
 /infrastructure/.cdk.staging
 /infrastructure/cdk.out
+
+#################################
+# Kup .gitignore
+#################################
+/kup/node_modules
