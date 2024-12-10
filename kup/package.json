@@ -4,7 +4,8 @@
   "description": "A toolkit designed for automating tasks in the UnityPortfolio",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "verify:unity-projects": "node ./src/index.js verify unity-projects"
   },
   "repository": {
     "type": "git",
