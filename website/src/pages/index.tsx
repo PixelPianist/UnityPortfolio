@@ -1,5 +1,4 @@
 ﻿import React from 'react';
-import Link from 'next/link';
 import Header from '@components/Header';
 
 const IndexPage = () => {
@@ -25,21 +24,9 @@ const IndexPage = () => {
                     AWS infrastructure created using AWS CDK to host the games.
                 </li>
             </ul>
-
-            {/* Main Content */}
-            <main className="flex-grow container mx-auto p-6">
-                <section className="flex flex-col items-center">
-                    <h2 className="text-2xl md:text-3xl font-semibold mb-6">
-                        View Available Games
-                    </h2>
-                    <Link
-                        href="/games"
-                        className="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 transition-colors duration-200 rounded text-white"
-                    >
-                        Browse Games
-                    </Link>
-                </section>
-            </main>
+            <p className="text-gray-100 max-w-2xl mx-auto mt-4">
+                Navigate using the links in the header navigation bar to view available games and videos.
+            </p>
         </div>
     );
 };

@@ -62,7 +62,7 @@ const GamesPage = () => {
     return (
         <div>
             <Header
-                title="Available Unity Games"
+                title="Games"
                 subtitle="Browse and select a Unity game to play."
             />
 
