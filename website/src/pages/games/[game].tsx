@@ -8,14 +8,16 @@ const GAMES_BUCKET_URL = process.env.NEXT_PUBLIC_GAMES_BUCKET_URL;
 interface GamePageProps {
     game: string;
     description: string;
+    instructions: string;
 }
 
-const GamePage: NextPage<GamePageProps> = ({ game, description }) => {
+const GamePage: NextPage<GamePageProps> = ({ game, description, instructions }) => {
     return (
         <div>
             <Header
                 title={game}
                 subtitle={description}
+                instructions={instructions}
             />
 
             <main className="flex-grow container mx-auto p-6">
@@ -35,7 +37,7 @@ const GamePage: NextPage<GamePageProps> = ({ game, description }) => {
 };
 
 export const getServerSideProps: (context: GetServerSidePropsContext) => Promise<{ notFound: boolean } | {
-    props: { game: string, description: string }
+    props: { game: string, description: string, instructions: string }
 }> = async (context) => {
     const { game } = context.params as { game: string };
 
@@ -54,18 +56,37 @@ export const getServerSideProps: (context: GetServerSidePropsContext) => Promise
         const descResponse = await fetch(descriptionUrl);
         if (descResponse.ok) {
             descriptionText = await descResponse.text();
-        } else {
+        } 
+        else {
             descriptionText = 'No description available';
         }
-    } catch (err) {
+    } 
+    catch (err) {
         console.error(`Error fetching description for ${game}:`, err);
         descriptionText = 'No description available';
+    }
+    
+    const instructionsUrl = `${GAMES_BUCKET_URL}/${game}/instructions.txt`;
+    let instructionsText = '';
+    try {
+        const instructionsResponse = await fetch(instructionsUrl);
+        if (instructionsResponse.ok) {
+            instructionsText = await instructionsResponse.text();
+        }
+        else {
+            instructionsText = 'No instructions available';
+        }
+    }
+    catch (err) {
+        console.error(`Error fetching instructions for ${game}:`, err);
+        instructionsText = 'No instructions available';
     }
 
     return {
         props: {
             game,
             description: descriptionText,
+            instructions: instructionsText,
         },
     };
 };
