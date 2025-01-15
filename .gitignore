@@ -96,6 +96,11 @@
 .idea
 
 #################################
+# OSX .gitignore
+#################################
+**/.DS_Store
+
+#################################
 # AWS CDK .gitignore
 #################################
 /infrastructure/*.js
@@ -106,3 +111,5 @@
 # CDK asset staging directory
 /infrastructure/.cdk.staging
 /infrastructure/cdk.out
+
+
